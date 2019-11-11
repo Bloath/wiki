@@ -94,7 +94,7 @@
 	* `#include <sys/types.h>`
 	* `#include <sys/uio.h>`
 	* `#include <unistd.h>`
- 
+
 
 <br>
 ***
@@ -196,9 +196,9 @@
 
 ## 附录
 
-#### `fopen`函数模式<a name="fopen-mode"></a>
+#### `fopen`函数模式
 
-<div align="center"><img src="http://cs.bloath.com/img/fopenMode.png" alt=""></div>
+![](../../files/img/fopenMode.png)
 
 #### `oflag`模式<a name="oflag"></a>
 ```
