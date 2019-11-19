@@ -196,3 +196,11 @@ VIDEO_DATA_FORMAT	bmp的格式，包括位宽以及格式，这里是一个枚�
 
 ```
 
+## 三、下载地址
+
+需要修改的文件如下
+
+* `tools/bmp_logo.c`
+* `drivers/video/cfb_console.c`
+
+[下载链接](http://cs.bloath.com/file/uboot-logo.zip)
