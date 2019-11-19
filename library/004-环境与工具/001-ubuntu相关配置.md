@@ -192,19 +192,12 @@ address xxx.xxx.xxx.xxx
 netmask xxx.xxx.xxx.xxx
 gateway xxx.xxx.xxx.xxx
 
+dns-nameservers 114.114.114.114
+dns-nameservers 8.8.8.8
+
 sudo /etc/init.d/networking restart
 ifdown $TARGET_NET
 或者直接重启
 sudo reboot
-```
-
-### DNS
-
-```
-sudo vim /etc/resolv.conf
-
-添加
-nameserver xxx.xxx.xxx.xxx
-nameserver xxx.xxx.xxx.xxx
 ```
 
