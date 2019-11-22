@@ -115,12 +115,20 @@ showmount -e 查看可挂载的文件夹
 
 ```
 sudo apt install openssh-server -y
+
+sudo /etc/init.d/ssh restart`重启
 ```
 
- **使用root登陆ssh**
+ **修改设置**
 
-- sudo vim /etc/ssh/sshd_config，将`PermitRootLogin`该为yes
-- `sudo /etc/init.d/ssh restart`重启
+```
+sudo vim /etc/ssh/sshd_config
+
+PermitRootLogin => yes	# 允许root登陆
+StrictModes => no	# 为yes时会检查家目录ssh的权限和所有权，经常会改错
+AuthorizedKeysFile => .ssh/authorized_keys	# key文件存放目录
+PermitEmptyPasswords => yes 	# 这个参数一般修改开发板上的sshd_config，因为很多开发板root密码都为空
+```
 
 
 
