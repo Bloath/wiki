@@ -2,7 +2,7 @@
 
 [TOC]
 
-##  环境变量
+##  一、环境变量
 
 ### 1.sudo 重置环境变量的问题
 
@@ -47,7 +47,7 @@ service systemd-logind restart
 
 
 
-## ftp文件传输
+## 二、ftp文件传输
 
 **相关命令**
 
@@ -70,7 +70,7 @@ write_enable=YES
 
 
 
-## NFS 挂载
+## 三、NFS 挂载
 
 **相关命令**
 
@@ -111,7 +111,7 @@ showmount -e 查看可挂载的文件夹
 
 
 
-## SSH 远程登陆
+## 四、SSH 远程登陆
 
 ```
 sudo apt install openssh-server -y
@@ -130,9 +130,19 @@ AuthorizedKeysFile => .ssh/authorized_keys	# key文件存放目录
 PermitEmptyPasswords => yes 	# 这个参数一般修改开发板上的sshd_config，因为很多开发板root密码都为空
 ```
 
+> key生成脚本
+
+```shell
+ssh-keygen -t rsa1 -f /etc/ssh/ssh_host_key -N ""
+ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ""
+ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ""
+ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N ""
+ssh-keygen -t dsa -f /etc/ssh/ssh_host_ed2551_key -N ""
+```
 
 
-## TFTP 文件传输
+
+## 五、TFTP 文件传输
 
 **安装**
 
@@ -184,7 +194,7 @@ sudo service tftpd-hpa restart
 
 
 
-## 网络
+## 六、网络
 
 ### 固定ip
 

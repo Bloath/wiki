@@ -60,50 +60,27 @@ sudo make
 
 
 
-## 二、细节设置
+## 二、单独修改package
 
-### 2.1 控制行显示主机以及当前路径
+> 如果想要单独修改某一个package的话，通过直接修改package再编译的方法是不行的。
 
-```
-sudo vim /etc/profile
+buildroot对选中的package一般进行下载、解压缩、配置、编译等步骤
 
-删除
-if [ "$PS1" ]; then
-.....
-fi
-
-添加如下
-PS1='[\u@\h] \w $ '
-export PS1
-```
-
-
-
-
-
-### 2.2 openssh添加以及root空密码登陆
-
-**在menuconfig中添加**
+那么每一步都在`out/build/$PACKAGENAME_$VERSION/`中生成如下文件
 
 ```
-Target packages  --->
-	Networking applications  --->
-		[*] openssh
+.stamp_built
+.stamp_configured
+.stamp_dotconfig
+.stamp_downloaded
+.stamp_extracted
+.stamp_kconfig_fixup_done
+.stamp_patched
+.stamp_target_installed
 ```
 
-**修改**`/etc/ssh/sshd_config`
+想要重新配置并重新编译进入文件系统
 
-```
-原 #PermitRootLogin prohibit-password 
-PermitRootLogin yes
-
-原 #PermitEmptyPasswords no
-PermitEmptyPasswords yes
-```
-
-启动sshd
-
-```
-/usr/sbin/sshd
-```
+* 不修改`.stamp_configured`
+* 删除`.stamp_built`
 
